@@ -1,0 +1,192 @@
+.payment-card {
+    padding: 16px;
+    background-color: var(--white);
+}
+
+.payment-card-title {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 120%;
+    color: var(--dark-sky-blue);
+    margin: 16px;
+}
+
+.payment-card-title:before, .payment-card-title:after {
+    content: '';
+    flex: 1 1;
+    border-bottom: 1px solid var(--light-sky-blue);
+    margin: auto;
+}
+
+.payment-card-title:before {
+    margin-right: 10px
+}
+.payment-card-title:after {
+    margin-left: 10px
+}
+
+.payment-card-icon {
+    width: 16px;
+    height: 16px;
+    stroke: var(--dark-sky-blue);
+}
+
+.container-card-fields {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-data-field {
+    flex: 1;
+}
+
+.card-cvv-field {
+    flex: 1;
+}
+
+.coupon {
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--cold-grey);
+    margin: 16px 0;
+}
+
+.card-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-email, .expiry-date-input, .cvv-input, .card-number, .card-holder-name, .promo-input {
+    width: 100%;
+    height: 42px;
+    border: 1px solid var(--light-sky-blue);
+    border-radius: 4px;
+    outline: none;
+    padding-left: 36px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 12px;
+}
+
+.card-form input::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 110%;
+    color: var(--regular-grey);
+}
+
+.card-email, .card-number, .card-holder-name {
+    margin-top: 8px;
+}
+
+.card-email {
+    background-image: url("./src/assets/bytesize_mail.svg");
+}
+
+.card-holder-name {
+    background-image: url("./src/assets/ant-design_user-outlined.svg");
+}
+
+.expiry-date-input {
+    border-top: none;
+    border-right: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    background-image: url("./src/assets/ant-design_calendar-outlined.svg");
+}
+
+.cvv-input {
+    border-top: none;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-image: url("./src/assets/icons8_lock.svg");
+}
+
+.card-number {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-image: url("./src/assets/ant-design_credit-card-outlined (1).svg");
+    position: relative;
+}
+
+.promo-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+}
+
+.promo-input {
+    flex: 1;
+    border-right: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.apply-button {
+    display: flex;
+    flex: 1;
+    border: 1px solid var(--light-sky-blue);
+    outline: none;
+    background-color: transparent;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    justify-content: end;
+    align-items: center;
+}
+
+.apply-button:active .promo-img-apply {
+    fill: var(--blue);
+}
+
+.promo-img-apply {
+    fill: #C4D3EB;
+    width: 43px;
+    height: 21px;
+}
+
+.card-info-container {
+    margin: 16px 0;
+}
+
+.button-submit-order {
+    background: var(--blue);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    text-transform: capitalize;
+}
+
+.method-payment-icon {
+    width: 21px;
+    height: 16px;
+}
+
+.method-payment-list {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    row-gap: 2px;
+    right: 32px;
+    z-index: 1;
+    margin-top: 20px;
+}
+
+@media(hover: hover) and (pointer: fine) {
+    .button-submit-order:hover {
+        background: var(--deep-blue);
+    }
+
+    .coupon:hover {
+        color: var(--blue);
+    }
+}

@@ -1,0 +1,20 @@
+:root {
+    --light-blue: #ABC7EC;
+    --blue: #2F80ED;
+    --white: #FFFFFF;
+    --grey: #B2BECB;
+    --green: #00C4C4;
+    --dark-grey: #37465D;
+    --full-black: #000000;
+    --black: #081D31;
+    --cold-grey: #2E3C49;
+    --light-sky-blue: #D3E2F9;
+    --dark-sky-blue: #89A6D4;
+    --regular-grey: #8D969E;
+    --deep-blue: #1968D2;
+    --deep-grey: #17324D;
+    --cadet-grey: #8A98A9;
+    --povder-blue: #C0D4F3;
+
+    --desktop-min-width: 1025px;
+}

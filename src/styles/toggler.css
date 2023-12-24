@@ -1,0 +1,20 @@
+.toggle-switch {
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--dark-grey);
+}
+
+.status {
+    color: var(--blue);
+    text-transform: uppercase;
+    text-decoration: underline;
+    display: inline-block;
+    width: 50px;
+}
+
+.input-toggle {
+    display: none;
+}

@@ -1,0 +1,41 @@
+.alternative-method-icon.crypto{
+    height: 20px;
+    width: 20px;
+}
+
+.alternative-method-icon.paypal {
+    width: 58px;
+    height: 20px;
+}
+
+.button-accordion {
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrow-icon {
+    fill: var(--dark-sky-blue);
+    width: 20px;
+    height: 20px;
+}
+
+.icons-container {
+    margin: 0 auto;
+    display: flex;
+    column-gap: 16px;
+}
+
+.button-accordion-method {
+    border: 1px solid var(--light-sky-blue);
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}

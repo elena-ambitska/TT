@@ -1,0 +1,72 @@
+.navigation {
+    padding: 0 16px;
+}
+
+.steplist {
+    border-top: 1px solid var(--light-blue);
+    display: inline-flex;
+    list-style-type: none;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.steplist li {
+    margin: 0;
+    position: relative;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+}
+
+.steplist li::before {
+    border: 1px solid var(--blue);
+    background-color: var(--white);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    content: url("src/assets/confirmed-min.svg");
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.steplist li span {
+    display: none;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.steplist li.active span {
+    display: block;
+    color: var(--white);
+}
+
+.steplist li.active::before {
+    background-color: var(--blue);
+    content: '';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+@media (min-width: var(--desktop-min-width)) {
+    .steplist li {
+        width: 24px;
+        height: 24px;
+    }
+
+    .steplist li::before {
+        width: 24px;
+        height: 24px;
+    }
+}

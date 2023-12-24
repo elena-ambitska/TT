@@ -1,0 +1,59 @@
+.header {
+    height: 48px;
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(131, 144, 193, 0.25);
+    padding: 0 16px;
+}
+
+.menu-button {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-bottom: 2px solid var(--full-black);
+}
+
+.menu-button::before,
+.menu-button::after {
+    content: "";
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-color: var(--black);
+}
+
+.menu-button::before {
+    top: 30%;
+}
+
+.menu-button::after {
+    top: 67%;
+}
+
+.menu-button.active {
+    border-bottom: none;
+}
+
+.menu-button.active::before {
+    top: 50%;
+    transform: translate(-50%, 0) rotate(45deg);
+}
+
+.menu-button.active::after {
+    top: 50%;
+    transform: translate(-50%, 0) rotate(-45deg);
+}
+
+@media (min-width: var(--desktop-min-width)) {
+    .header {
+        height: 72px;
+    }
+}

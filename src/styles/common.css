@@ -1,0 +1,15 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+}
+
+header, nav, h2 {
+    margin-bottom: 16px;
+}
+.section-title {
+    text-align: center;
+}

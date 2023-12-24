@@ -1,0 +1,26 @@
+.partners-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 10px;
+    padding: 0 16px;
+    margin: 16px 0;
+}
+
+.partners-list li {
+    margin: auto;
+}
+
+.policy-agreement {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 140%;
+    text-align: center;
+    color: var(--dark-grey);
+    padding: 0 16px;
+}
+
+.policy-agreement .policy-agreement-link {
+    color: var(--dark-grey);
+    text-decoration: underline;
+    cursor: pointer;
+}

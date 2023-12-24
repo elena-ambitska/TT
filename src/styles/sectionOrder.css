@@ -1,0 +1,60 @@
+.description-order-section {
+    padding: 0 16px;
+}
+
+.description-container div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.description-container .section-title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--full-black);
+}
+
+.font-light {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 110%;
+    color: var(--dark-grey);
+}
+
+.font-regular, .font-medium, .font-semibold {
+    font-size: 13px;
+    line-height: 110%;
+    color: var(--black);
+}
+
+.subscription-price  {
+    color: var(--green);
+}
+
+.font-regular {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+@media (min-width: var(--desktop-min-width)) {
+    .font-light {
+        font-size: 13px;
+    }
+
+    .font-regular, .font-medium, .font-semibold {
+        font-size: 15px;
+    }
+
+    .description-container .section-title {
+        margin-bottom: 24px;
+    }
+}
+

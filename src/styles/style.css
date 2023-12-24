@@ -1,7 +1,13 @@
-*, *:before, *:after {
-    box-sizing: border-box;
-}
-
-html {
-    font-family: 'Poppins', sans-serif;
-}
+@import "reset.css";
+@import "variables.css";
+@import "common.css";
+@import "header.css";
+@import "steplist.css";
+@import "sectionOrder.css";
+@import "button.css";
+@import "paymentCard.css";
+@import "accordion.css";
+@import "toggler.css";
+@import "policy.css";
+@import "offerMenu.css";
+@import "footer.css";

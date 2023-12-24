@@ -1,8 +1,7 @@
 import '../styles/style.css'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-   ololol
-  </div>
-`
+import './burger-menu';
+import './toggler';
+import './utils/openDetailsOnDesktop.js'
+
 
