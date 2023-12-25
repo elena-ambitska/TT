@@ -12,6 +12,7 @@
     background-color: transparent;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .arrow-icon {
@@ -33,9 +34,43 @@
 }
 
 .accordion {
-    display: flex;
+    display: none;
     flex-direction: column;
     row-gap: 8px;
     transition: all 0.3s ease-in-out;
     overflow: hidden;
+}
+
+.active.accordion {
+    display: flex;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.active.button-accordion .arrow-icon {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+ .arrow-icon {
+    transition: transform 0.3s ease-in-out;
+}
+
+ .active.button-accordion .icons-container {
+     opacity: 0.3;
+ }
+
+.active.promo-container {
+    display: block;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

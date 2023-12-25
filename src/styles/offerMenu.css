@@ -74,8 +74,21 @@
 }
 
 
-@media screen and (min-width: var(--desktop-min-width)) {
+@media (min-width: 980px) {
     .product-img {
         display: block;
+    }
+
+    .offer-menu, .content {
+        border: none;
+    }
+
+    .offer-menu {
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .product-img {
+        margin: auto;
     }
 }

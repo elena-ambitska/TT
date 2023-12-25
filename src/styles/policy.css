@@ -24,3 +24,11 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+@media (min-width: 980px) {
+    .container-reverse {
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 16px;
+    }
+}

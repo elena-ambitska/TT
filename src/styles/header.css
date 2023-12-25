@@ -1,11 +1,20 @@
 .header {
     height: 48px;
     background-color: var(--white);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
     box-shadow: 0 0 10px rgba(131, 144, 193, 0.25);
     padding: 0 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+.header-container {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
 }
 
 .menu-button {
@@ -52,7 +61,7 @@
     transform: translate(-50%, 0) rotate(-45deg);
 }
 
-@media (min-width: var(--desktop-min-width)) {
+@media (min-width: 980px) {
     .header {
         height: 72px;
     }

@@ -1,5 +1,6 @@
 .navigation {
     padding: 0 16px;
+    margin-top: 75px;
 }
 
 .steplist {
@@ -59,7 +60,7 @@
     text-align: center;
 }
 
-@media (min-width: var(--desktop-min-width)) {
+@media (min-width: 980px) {
     .steplist li {
         width: 24px;
         height: 24px;
@@ -68,5 +69,9 @@
     .steplist li::before {
         width: 24px;
         height: 24px;
+    }
+
+    .navigation {
+        margin-top: 100px;
     }
 }

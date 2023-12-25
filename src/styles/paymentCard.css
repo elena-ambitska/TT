@@ -55,11 +55,35 @@
     line-height: 18px;
     color: var(--cold-grey);
     margin: 16px 0;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+}
+
+.coupon.active {
+    color: var(--blue);
 }
 
 .card-form {
     display: flex;
     flex-direction: column;
+}
+
+.form-group {
+    position: relative;
+}
+
+.card-form input.focus {
+    border-color: #4376A6;
+}
+
+.focus.expiry-date-input {
+    border-top: 1px solid #4376A6;
+    border-right: 1px solid #4376A6;
+}
+
+.focus.cvv-input {
+    border-top: 1px solid #4376A6;
 }
 
 .card-email, .expiry-date-input, .cvv-input, .card-number, .card-holder-name, .promo-input {
@@ -118,43 +142,31 @@
 }
 
 .promo-container {
-    display: flex;
-    flex-direction: row;
     margin-bottom: 16px;
+    position: relative;
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .promo-input {
-    flex: 1;
-    border-right: none;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
+   padding-right: 40px;
 }
 
 .apply-button {
-    display: flex;
-    flex: 1;
-    border: 1px solid var(--light-sky-blue);
+    position: absolute;
+    right: 18px;
+    transform: translateY(-95%);
     outline: none;
     background-color: transparent;
-    border-left: none;
-    border-radius: 0 4px 4px 0;
+    border: none;
     cursor: pointer;
-    justify-content: end;
-    align-items: center;
-}
-
-.apply-button:active .promo-img-apply {
-    fill: var(--blue);
-}
-
-.promo-img-apply {
-    fill: #C4D3EB;
-    width: 43px;
-    height: 21px;
+    width: 100px;
+    height: 40px;
 }
 
 .card-info-container {
     margin: 16px 0;
+    position: relative;
 }
 
 .button-submit-order {
@@ -164,6 +176,11 @@
     font-size: 13px;
     line-height: 20px;
     text-transform: capitalize;
+}
+
+.button-submit-order:disabled {
+    background: var(--blue);
+    opacity: 0.4;
 }
 
 .method-payment-icon {
@@ -181,6 +198,10 @@
     margin-top: 20px;
 }
 
+[data-field="[data-form-card]"] {
+    transform: translate(0px, -110px);
+}
+
 @media(hover: hover) and (pointer: fine) {
     .button-submit-order:hover {
         background: var(--deep-blue);
@@ -188,5 +209,16 @@
 
     .coupon:hover {
         color: var(--blue);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

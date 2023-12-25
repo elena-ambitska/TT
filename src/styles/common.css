@@ -13,3 +13,65 @@ header, nav, h2 {
 .section-title {
     text-align: center;
 }
+
+input {
+  position: relative;
+}
+
+.error-message {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #EB5757;
+    position: absolute;
+    right: 16px;
+    transform: translate(0px, -70px);
+}
+
+.success-message {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    color: var(--success-green);
+}
+
+@media (min-width: 980px){
+    main {
+      max-width: 453px;
+        margin: auto;
+    }
+
+    .container {
+        max-width: 1092px;
+        margin: auto;
+        display: grid;
+        grid-template-areas: "header header header header header header header header header header header header"
+                            "nav nav nav nav nav nav nav nav nav nav nav nav"
+                            "aside aside  aside aside main main main main main aside-right aside-right aside-right"
+                            "footer footer footer footer footer footer footer footer footer footer footer footer"
+    }
+
+    .header {
+        grid-area: header;
+    }
+
+    .navigation {
+        grid-area: nav;
+    }
+
+    .aside-left {
+        grid-area: aside;
+    }
+
+    .main-grid {
+        grid-area: main;
+    }
+
+    .sidebar-right {
+        grid-area: aside-right;
+    }
+
+    .footer {
+        grid-area: footer;
+    }
+}
