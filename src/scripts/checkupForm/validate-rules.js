@@ -1,55 +1,30 @@
-export const VALIDATE_RULES = {
-    '[data-form-email]': {
-        rule: (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
-        message: 'Invalid email format',
-        required: true,
-    },
-    '[data-form-card]': {
-        rule: (cardNumber) => cardNumber.replace(/\s/g, '').length === 16,
-        message: 'Your card number is invalid',
-        required: true,
-    },
-    '[data-form-card-date]': {
-        rule: (expiryDate) => {
+import * as Yup from 'yup';
+
+export const validationSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Required'),
+    'card-number': Yup.string().required('Required').matches(/^\d{4} \d{4} \d{4} \d{4}$/, 'Invalid card number'),
+    'card-date': Yup.string().matches(/^\d{2}\/\d{4}$/, 'Invalid date').required('Required').test('expiry-date', 'Invalid expiration date', function (expiryDate) {
             const parts = expiryDate.split('/');
             if (parts.length !== 2) {
-                return 'Your card\'s expiration date is incomplete';
+                return false;
             }
 
             const month = parseInt(parts[0], 10);
             const year = parseInt(parts[1], 10);
 
             if (isNaN(month) || isNaN(year) || month < 1 || month > 12) {
-                return 'Invalid month in expiration date';
+                return false;
             }
 
             const currentYear = new Date().getFullYear();
 
             if (year < currentYear || (year === currentYear && month < new Date().getMonth() + 1)) {
-                return 'Your card\'s expiration year is in the past';
+                return false;
             }
 
             return true;
-        },
-        message: 'Invalid expiration date format (MM/YYYY)',
-        required: true,
-    },
-    '[data-form-card-cvv]': {
-        rule: (cvv) => /^\d{3,4}$/.test(cvv),
-        message: 'Invalid CVV format',
-        required: true,
-    },
-    '[data-form-name-card]': {
-        rule: (name) => name.trim() !== '',
-        message: 'Cardholder name is required',
-        required: true,
-    },
-    '[data-form-promo-input]': {
-        rule: (promo) => {
-            const validatePromoCodes = ['promo10'];
-            return validatePromoCodes.includes(promo);
-        },
-        message:'Invalid coupon code :(',
-        required: false,
-    }
-};
+        }),
+    'card-cvv': Yup.string().matches(/^\d{3}$/, 'Invalid CVV').required('Required'),
+    'card-holder-name': Yup.string().required('Required'),
+    promo: Yup.string(),
+});

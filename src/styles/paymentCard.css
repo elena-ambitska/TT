@@ -181,6 +181,7 @@
 .button-submit-order:disabled {
     background: var(--blue);
     opacity: 0.4;
+    pointer-events: none;
 }
 
 .method-payment-icon {

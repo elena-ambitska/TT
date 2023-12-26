@@ -1,20 +1,17 @@
-import {getCardDataForm} from "./get-card-data-form.js";
-
-export const sendCardDataToServer = async (selector) => {
-    const dataToSend = getCardDataForm(selector);
+export const sendCardDataToServer = async (data) => {
     try {
         const response = await fetch("my-endpoint", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(dataToSend),
+            body: JSON.stringify(data),
         });
 
         if (response.ok) {
             const data = await response.json();
         } else {
-            console.log(dataToSend);
+            console.log(data);
         }
 
     } catch (error) {

@@ -25,7 +25,7 @@ input {
     color: #EB5757;
     position: absolute;
     right: 16px;
-    transform: translate(0px, -70px);
+    top: 0;
 }
 
 .success-message {

@@ -1,62 +1,72 @@
-import { getFieldValidity } from "./validate-form.js";
-import { ERROR_STATE } from "./error-state.js";
-import { clearErrorMessages, displayErrorMessage } from "./handle-error-massages.js";
-import {promoCodeField} from "../variables.js";
+import * as Yup from 'yup';
+import {displayErrorMessage} from "./handle-error-massages.js";
 
-export function initPromoCode() {
-    const buttonApply = document.querySelector('[data-form-promo-btn]');
-    const messageContainer = document.querySelector('[data-success-message]');
-    const promoImg = document.querySelector('[data-promo-img-apply]');
+const buttonApply = document.querySelector('[data-form-promo-btn]');
+const promoInput = document.querySelector('[data-form-promo-input]');
+const successMessage = document.querySelector('[data-success-message]');
+const promoImg = document.querySelector('[data-promo-img-apply]');
+const isPromoCodeValid = async (promo) => {
+    const promoSchema = Yup.string()
+        .test('valid-promo', 'Invalid coupon code :(', (value) => {
+            const validatePromoCodes = ['promo10'];
+            return validatePromoCodes.includes(value);
+        });
 
-    buttonApply.addEventListener('click', handleApplyButtonClick);
+    try {
+        await promoSchema.validate(promo);
 
-    function handleApplyButtonClick(evt) {
-        evt.preventDefault();
+        return true;
+    } catch (error) {
+        displayErrorMessage('promo', error.message )
+        return false;
+    }
+};
 
-        const inputValue = document.querySelector(promoCodeField).value;
-        if (inputValue === '') {
-            return;
-        }
+const applyPromoCode = async () => {
 
-        const isPromoValid = validatePromoCode();
-        const { rule } = getFieldValidity(promoCodeField);
+    const promoCode = promoInput.value.trim();
 
-        isPromoValid ? handleValidPromoCode() :  handleInvalidPromoCode(rule);
+    if( promoCode === "" ) {
+        return;
     }
 
-    function handleValidPromoCode() {
-        messageContainer.innerText = 'Your coupon has been applied';
-        promoImg.src = './src/assets/check-circle-filled.svg';
-        buttonApply.style.transform = 'translateY(-150%)';
-        ERROR_STATE[promoCodeField] = false;
+    const isValid = await isPromoCodeValid(promoCode);
+
+    if (isValid === true) {
+        handleValidPromoCode();
+    } else {
+        handleInvalidPromoCode();
     }
+};
 
-    function handleInvalidPromoCode(rule) {
-        promoImg.src = './src/assets/bin.svg';
-        displayErrorMessage(promoCodeField, rule.message);
-        ERROR_STATE[promoCodeField] = true;
-        promoImg.classList.remove('success-icon');
-        buttonApply.setAttribute('data-error-btn', 'data-error-btn');
-        resetErrorValidation();
+
+buttonApply.addEventListener('click', async () => {
+    if(!promoInput.hasAttribute('data-error')) {
+        await applyPromoCode();
+    } else {
+        await resetInput()
     }
+});
 
-    function resetErrorValidation() {
-        if (!buttonApply.hasAttribute('data-error-btn')) {
-            return;
-        }
 
-        buttonApply.addEventListener('click', handleResetButtonClick);
+function handleValidPromoCode() {
+    successMessage.innerText = 'Your coupon has been applied';
+    promoImg.src = './src/assets/check-circle-filled.svg';
+    buttonApply.style.transform = 'translateY(-150%)';
+    promoInput.removeAttribute('data-error');
+}
 
-        function handleResetButtonClick() {
-            clearErrorMessages(promoCodeField);
-            buttonApply.removeAttribute('data-error-btn');
-            promoImg.src = 'src/assets/Apply (1).svg';
-        }
-    }
+function handleInvalidPromoCode() {
+    promoImg.src = './src/assets/bin.svg';
+    promoImg.classList.remove('success-icon');
+    buttonApply.setAttribute('data-error-btn', 'data-error-btn');
+    promoInput.style.borderColor = '#EB5757'
+    promoInput.setAttribute('data-error', 'data-error');
+}
 
-    function validatePromoCode() {
-        const { isFieldEmpty, isValueInvalid } = getFieldValidity(promoCodeField);
-
-        return !isFieldEmpty && !isValueInvalid && !ERROR_STATE[promoCodeField];
-    }
+function resetInput () {
+    promoImg.src = 'src/assets/Apply (1).svg';
+    promoInput.style.borderColor = '#D3E2F9'
+    promoInput.value = '';
+    promoInput.removeAttribute('data-error');
 }
