@@ -1,12 +1,12 @@
 import { getFieldValidity } from "./validate-form.js";
 import { ERROR_STATE } from "./error-state.js";
 import { clearErrorMessages, displayErrorMessage } from "./handle-error-massages.js";
+import {promoCodeField} from "../variables.js";
 
 export function initPromoCode() {
     const buttonApply = document.querySelector('[data-form-promo-btn]');
     const messageContainer = document.querySelector('[data-success-message]');
     const promoImg = document.querySelector('[data-promo-img-apply]');
-    const promoCodeField = '[data-form-promo-input]';
 
     buttonApply.addEventListener('click', handleApplyButtonClick);
 
@@ -21,13 +21,10 @@ export function initPromoCode() {
         const isPromoValid = validatePromoCode();
         const { rule } = getFieldValidity(promoCodeField);
 
-        console.log('isPromoValid ', isPromoValid)
-
         isPromoValid ? handleValidPromoCode() :  handleInvalidPromoCode(rule);
     }
 
     function handleValidPromoCode() {
-        console.log(handleValidPromoCode)
         messageContainer.innerText = 'Your coupon has been applied';
         promoImg.src = './src/assets/check-circle-filled.svg';
         buttonApply.style.transform = 'translateY(-150%)';
@@ -35,7 +32,6 @@ export function initPromoCode() {
     }
 
     function handleInvalidPromoCode(rule) {
-        console.log('handleInvalidPromoCode')
         promoImg.src = './src/assets/bin.svg';
         displayErrorMessage(promoCodeField, rule.message);
         ERROR_STATE[promoCodeField] = true;
@@ -59,8 +55,6 @@ export function initPromoCode() {
     }
 
     function validatePromoCode() {
-        console.log('validatePromoCode')
-        const promoCodeField = '[data-form-promo-input]';
         const { isFieldEmpty, isValueInvalid } = getFieldValidity(promoCodeField);
 
         return !isFieldEmpty && !isValueInvalid && !ERROR_STATE[promoCodeField];

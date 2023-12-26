@@ -1,4 +1,4 @@
-import {getCardDataForm} from "./getCardDataForm.js";
+import {getCardDataForm} from "./get-card-data-form.js";
 
 export const sendCardDataToServer = async (selector) => {
     const dataToSend = getCardDataForm(selector);

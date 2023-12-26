@@ -2,11 +2,11 @@ import '../styles/style.css'
 
 import './burger-menu';
 import './toggler';
-import './utils/openDetailsOnDesktop.js';
+import './utils/open-details-on-desktop.js';
 import './checkupForm/input-masks.js'
 import './checkupForm/validate-form.js';
 import './checkupForm/init-promo-code.js';
-import './checkupForm/initCheckupForm';
-import './initAccordion';
+import './checkupForm/init-checkup-form.js';
+import './init-accordion.js';
 
 
